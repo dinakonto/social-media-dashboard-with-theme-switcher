@@ -50,6 +50,12 @@ h1 {
   color: var(--text-bright);
 }
 
+h2 {
+  font-size: 1.7em;
+  margin: 50px 0 25px 0;
+  color: var(--text-bright);
+}
+
 p {
   font-size: 1em;
 }
@@ -83,13 +89,58 @@ header p {
   background: var(--bg-card);
   color: var(--text-bright);
   border-radius: 4px;
-  padding: 30px 20px 25px 20px;
+  padding: 10px 25px 13px 25px;
   text-align: center;
   position: relative;
 }
 
 .channel-logo {
   height: 20px;
+}
+
+.variation {
+  font-size: 0.85em;
+  position: relative;
+  display: inline;
+}
+
+.variation::before {
+  position: absolute;
+  content: "";
+  height: 10px;
+  width: 10px;
+  background: transparent;
+  left: -12px;
+  top: 6px;
+}
+
+.hero-num {
+  margin: 20px 0 20px 0;
+}
+
+.hero-num p {
+  font-size: 3.9em;
+  margin: 0;
+}
+
+.variation.positive {
+  color: var(--col-positive);
+}
+
+.variation.positive::before {
+  background: url("../../assets/icon-up.svg") no-repeat;
+}
+
+.variation.negative {
+  color: var(--col-negative);
+}
+
+.variation.negative::before {
+  background: url("../../assets/icon-down.svg") no-repeat;
+}
+
+.overview-total .card {
+  padding: 30px 20px 25px 20px;
 }
 
 .overview-total > .card::before {
@@ -119,66 +170,53 @@ header p {
   background: var(--col-youtube);
 }
 
-.source {
+.overview-total .source {
   display: flex;
   justify-content: center;
   align-content: center;
 }
 
-.source p {
+.overview-total .source p {
   margin: 3px 0 0 8px;
   color: var(--text-low);
   font-size: 0.85em;
-}
-
-.hero-num {
-  margin: 20px 0 20px 0;
-}
-
-.hero-num p {
-  font-size: 3.9em;
-  margin: 0;
 }
 
 .hero-num .type {
   text-transform: uppercase;
   display: block;
   font-weight: var(--font-weight-regular);
-  letter-spacing: 4px;
+  letter-spacing: 5px;
   font-size: 0.23em;
   color: var(--text-low);
 }
 
-.variation {
-  font-size: 0.85em;
-  position: relative;
-  display: inline;
+.card-area.overview-today {
+  grid-gap: 17px;
 }
 
-.variation::before {
-  position: absolute;
-  content: "";
-  height: 10px;
-  width: 10px;
-  background: transparent;
-  left: -12px;
-  top: 6px;
+.overview-today .source,
+.overview-today .hero-num {
+  display: flex;
+  justify-content: space-between;
 }
 
-.variation.positive {
-  color: var(--col-positive);
+.overview-today .source {
+  align-items: center;
 }
 
-.variation.positive::before {
-  background: url("../../assets/icon-up.svg") no-repeat;
+.overview-today .hero-num {
+  align-items: baseline;
+  font-size: 0.6em;
+  margin: 10px 0 5px 0;
 }
 
-.variation.negative {
-  color: var(--col-negative);
+.overview-today .variation {
+  font-size: 1.4em;
 }
 
-.variation.negative::before {
-  background: url("../../assets/icon-down.svg") no-repeat;
+.metric {
+  color: var(--text-low);
 }
 
 /* RESPONSIVE CHANGES
@@ -186,6 +224,13 @@ header p {
 @media screen and (min-width: 550px) {
   .card-area {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .card-area.overview-today,
+.card-area.overview-total {
+    grid-gap: 0;
+    grid-column-gap: 25px;
+    grid-row-gap: 22px;
   }
 }
 @media screen and (min-width: 900px) {
