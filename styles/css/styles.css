@@ -12,19 +12,19 @@
 }
 
 .theme-dark {
-  --bg-toggle: linear-gradient(hsl(210, 78%, 56%), hsl(146, 68%, 55%));
   --bg: hsl(230, 17%, 14%);
   --bg-top: hsl(232, 19%, 15%);
   --bg-card: hsl(228, 28%, 20%);
+  --bg-toggle: linear-gradient(hsl(210, 78%, 56%), hsl(146, 68%, 55%));
   --text-low: hsl(228, 34%, 66%);
   --text-bright: hsl(0, 0%, 100%);
 }
 
 .theme-light {
-  --bg-toggle: hsl(230, 22%, 74%);
   --bg: hsl(0, 0%, 100%);
   --bg-top: hsl(225, 100%, 98%);
   --bg-card: hsl(227, 47%, 96%);
+  --bg-toggle: hsl(230, 22%, 74%);
   --text-low: hsl(228, 12%, 44%);
   --text-bright: hsl(230, 17%, 14%);
 }
@@ -34,6 +34,15 @@ html, body {
   padding: 0;
   height: 100%;
   width: 100%;
+}
+
+body {
+  background: var(--bg);
+}
+
+.card {
+  background: var(--bg-card);
+  color: var(--text-bright);
 }
 
 /*# sourceMappingURL=styles.css.map */
