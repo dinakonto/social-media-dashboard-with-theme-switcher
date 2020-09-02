@@ -8,7 +8,7 @@
   --col-negative: hsl(356, 69%, 56%)
   --col-facebook: hsl(208, 92%, 53%)
   --col-twitter: hsl(203, 89%, 53%)
-  --col-instagram: linear-gradient(hsl(37, 97%, 70%), hsl(329, 70%, 58%))
+  --col-instagram: linear-gradient(to right, hsl(37, 97%, 70%), hsl(329, 70%, 58%))
   --col-youtube: hsl(348, 97%, 39%)
   --font-size: 14px
   --font-stack: 'Inter', Helvetica, sans-serif
@@ -31,6 +31,7 @@
   --text-low: hsl(228, 12%, 44%)
   --text-bright: hsl(230, 17%, 14%)
 
+// BASICS
 html, body
   margin: 0
   padding: 0
@@ -40,6 +41,7 @@ body
   background: var(--bg)
   font-family: var(--font-stack)
   font-size: var(--font-size)
+  font-weight: var(--font-weight-bold)
   color: var(--text-low)
 
 h1
@@ -54,8 +56,8 @@ p
   padding: 25px
   margin: 0 auto
 
+// HEADER
 header p
-  font-weight: var(--font-weight-bold)
   margin: 5px 0
 
 .theme-switcher
@@ -67,10 +69,85 @@ header p
   width: 100%
   justify-content: space-between
 
+// CARDS
+.card-area
+  display: grid
+  grid-gap: 25px
 .card
   background: var(--bg-card)
   color: var(--text-bright)
+  border-radius: 4px
+  padding: 30px 20px 25px 20px
+  text-align: center
+  position: relative
+.channel-logo
+  height: 20px
 
+// OVERVIEW
+.overview-total > .card::before
+  background: var(--text-low)
+  height: 4px
+  width: 100%
+  content: ""
+  position: absolute
+  top: 0
+  left: 0
+  border-radius: 4px 4px 0 0
+.overview-total > .card.facebook::before
+  background: var(--col-facebook)
+.overview-total > .card.twitter::before
+  background: var(--col-twitter)
+.overview-total > .card.instagram::before
+  background: var(--col-instagram)
+.overview-total > .card.youtube::before
+  background: var(--col-youtube)
+.source
+  display: flex
+  justify-content: center
+  align-content: center
+.source p
+  margin: 3px 0 0 8px
+  color: var(--text-low)
+  font-size: 0.85em
+.hero-num
+  margin: 20px 0 20px 0
+.hero-num p
+  font-size: 3.9em
+  margin: 0
+.hero-num .type
+  text-transform: uppercase
+  display: block
+  font-weight: var(--font-weight-regular)
+  letter-spacing: 4px
+  font-size: 0.23em
+  color: var(--text-low)
+.variation
+  font-size: 0.85em
+  position: relative
+  display: inline
+.variation::before
+  position: absolute
+  content: ""
+  height: 10px
+  width: 10px
+  background: transparent
+  left: -12px
+  top: 6px
+.variation.positive
+  color: var(--col-positive)
+.variation.positive::before
+  background: url("../../assets/icon-up.svg") no-repeat
+.variation.negative
+  color: var(--col-negative)
+.variation.negative::before
+  background: url("../../assets/icon-down.svg") no-repeat
+
+
+/* RESPONSIVE CHANGES
+ */
+@media screen and (min-width: 550px)
+  .card-area
+    grid-template-columns: 1fr 1fr
 
 @media screen and (min-width: 900px)
   h1
@@ -84,3 +161,5 @@ header p
     border-top: none
     padding: 0
     margin: 0
+  .card-area
+    grid-template-columns: 1fr 1fr 1fr 1fr
