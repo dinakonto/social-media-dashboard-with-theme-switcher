@@ -74,10 +74,59 @@ header p {
   border-top: 1px solid var(--text-low);
   margin: 20px 0;
   padding: 10px 0;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   width: 100%;
   justify-content: space-between;
+}
+
+.theme-switcher__toggle {
+  cursor: pointer;
+  position: relative;
+  margin-left: 10px;
+}
+
+.theme-switcher__toggle::before,
+.theme-switcher__toggle::after {
+  content: "";
+  background: var(--bg-toggle);
+  transition: all 100ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+}
+
+.theme-switcher__toggle::before {
+  height: 1.8em;
+  width: 3.6em;
+  border-radius: 100px;
+}
+
+.theme-switcher__toggle::after {
+  top: 49%;
+  left: 5%;
+  content: "";
+  height: 1.45em;
+  width: 1.45em;
+  border-radius: 50%;
+  position: absolute;
+  background: var(--bg);
+  transform: translate(0, -50%);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2), 0 0 2px rgba(0, 0, 0, 0.4);
+}
+
+.theme-switcher [type=checkbox]:checked + .theme-switcher__toggle::after {
+  transform: translate(calc(3.3em - 100%), -50%);
+}
+
+.theme-switcher [type=checkbox]:focus + .theme-switcher__toggle {
+  border: var(--text-low) dotted 2px;
+  border-radius: 50px;
+  box-shadow: 0 0 8px var(--text-low);
+}
+
+.theme-switcher [type=checkbox] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .card-area {

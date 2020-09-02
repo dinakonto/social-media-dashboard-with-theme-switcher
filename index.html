@@ -25,10 +25,11 @@ TODO:
         <h1>Social Media Dashboard</h1>
         <p>Total Followers: 23,004</p>
       </div>
-      <div class="theme-switcher">
-        <p>Dark theme</p>
-        <div id="toggle" onclick="toggleTheme()">Switch</div>
-      </div>
+      <label class="theme-switcher">
+        <span id="current-theme">Dark Mode</span>
+        <input type="checkbox" onclick="toggleTheme()"/>
+        <span class="theme-switcher__toggle"></span>
+      </label>
     </header>
 
     <section class="card-area overview-total">
