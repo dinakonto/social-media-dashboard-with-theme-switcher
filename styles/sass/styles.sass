@@ -1,6 +1,6 @@
-// Reference for theme switcher:
-// https://medium.com/@haxzie/dark-and-light-theme-switcher-using-css-variables-and-pure-javascript-zocada-dd0059d72fa2
+// Reference for theme switching implementation:
 // https://fireship.io/lessons/theme-toggler/
+// https://medium.com/@haxzie/dark-and-light-theme-switcher-using-css-variables-and-pure-javascript-zocada-dd0059d72fa2
 
 // CSS VARIABLES
 :root
@@ -36,10 +36,51 @@ html, body
   padding: 0
   height: 100%
   width: 100%
-
 body
   background: var(--bg)
+  font-family: var(--font-stack)
+  font-size: var(--font-size)
+  color: var(--text-low)
+
+h1
+  margin: 10px 0 0 0
+  font-size: 1.7em
+  color: var(--text-bright)
+p
+  font-size: 1em
+
+#wrapper
+  max-width: 1110px
+  padding: 25px
+  margin: 0 auto
+
+header p
+  font-weight: var(--font-weight-bold)
+  margin: 5px 0
+
+.theme-switcher
+  border-top: 1px solid var(--text-low)
+  margin: 20px 0
+  padding: 10px 0
+  display: flex
+  align-items: center
+  width: 100%
+  justify-content: space-between
 
 .card
   background: var(--bg-card)
   color: var(--text-bright)
+
+
+@media screen and (min-width: 900px)
+  h1
+    font-size: 2em
+  header
+    display: flex
+    justify-content: space-between
+    margin-bottom: 35px
+  .theme-switcher
+    width: auto
+    border-top: none
+    padding: 0
+    margin: 0
